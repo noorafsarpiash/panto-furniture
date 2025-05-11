@@ -1,5 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { FaShoppingBag } from "react-icons/fa";
+import { FaBars } from "react-icons/fa6";
+import { FaTimes } from "react-icons/fa";
+
+
+
 
 const navItems = [
     {
@@ -20,11 +26,11 @@ const navItems = [
     }
 ]
 
-const NavItems = () => {
+const NavItems = ({ toggleMenu }) => {
     return (
         <ul className='flex flex-col md:flex-row items-center md:space-x-8 gap-8 '>
             {navItems.map((item, index) => (
-                <li key={index} >
+                <li key={index} onClick={toggleMenu} >
                     <NavLink to={item.path} className={({ isActive }) =>
                         isActive ? "text-primary font-bold" : "hover:text-primary"
                     }>{item.label}</NavLink>
@@ -35,14 +41,42 @@ const NavItems = () => {
 }
 
 const Navbar = () => {
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    }
+
+
+
+
+
     return (
-        <nav className='max-w-screen-2xl flex justify-between items-center py-6 px-4'>
+        <nav className='max-w-screen-2xl  mx-auto py-6 px-4 flex justify-between items-center'>
             {/* logo */}
             <Link to="/" className='font-bold'>Logo</Link>
+            <div onClick={toggleMenu} className='md:hidden text-xl cursor-pointer hover:text-primary'>
+                {
+                    isMenuOpen ? null : <FaBars />
+                }
+            </div>
+
             <div className='hidden md:flex'>
                 <NavItems />
             </div>
-            <div>Cart</div>
+
+            <div className={`fixed top-0 left-0 w-full h-screen bg-black bg-opacity-80 flex flex-col items-center justify-center space-y-8 text-white transition-transform transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} md:hidden `}>
+                <div className='absolute top-14 right-14 text-xl cursor-pointer' onClick={toggleMenu}>
+                    <FaTimes />
+                </div>
+                <NavItems toggleMenu={toggleMenu} />
+            </div>
+
+
+            <div className='hidden md:block cursor-pointer relative  '><FaShoppingBag className='text-xl' />
+                <sup className='absolute top-0 -right-3 bg-primary text-white w-5 h-5 rounded-full flex items-center justify-center text-xs'>0</sup>
+            </div>
 
         </nav>
     )
