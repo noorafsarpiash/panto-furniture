@@ -74,7 +74,7 @@ const Navbar = () => {
         <header className={`fixed top-0 left-0 right-0 z-50 transition duration-300 ease-in-out ${isScrolled ? "bg-white shadow-md" : "bg-transparent text-white"}`}>
             <nav className='max-w-screen-2xl container  mx-auto py-6 px-4 flex justify-between items-center'>
                 {/* logo */}
-                <Link to="/" className='font-bold'>Logo</Link>
+                <Link to="/" className='font-bold'>Panto</Link>
                 <div onClick={toggleMenu} className='md:hidden text-xl cursor-pointer hover:text-primary'>
                     {
                         isMenuOpen ? null : <FaBars />
