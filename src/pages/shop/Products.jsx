@@ -1,5 +1,6 @@
 import React from 'react'
 import { products } from '../../utils/products'
+import ProductCard from './ProductCard'
 
 const Products = ({ headline }) => {
     const categories = ["Chair", "Beds", "Sofa", "Lamp"]
@@ -24,7 +25,7 @@ const Products = ({ headline }) => {
                 <div>
                     {
                         products.map((product, index) => (
-                            <div>{product.name}</div>
+                            <ProductCard key={index} product={product} />
 
                         ))
                     }

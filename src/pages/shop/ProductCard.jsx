@@ -1,8 +1,12 @@
 import React from 'react'
 
-const ProductCard = () => {
+const ProductCard = ({ product }) => {
     return (
-        <div>ProductCarhhfghfghfghfghfd</div>
+        <div>
+            <div className='bg-[#FAFAFA]'>
+
+            </div>
+        </div>
     )
 }
 
