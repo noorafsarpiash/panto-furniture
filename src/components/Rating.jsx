@@ -2,7 +2,6 @@ import React from 'react'
 
 const Rating = ({ rating }) => {
     const totalStars = 5;
-    const totalStarsss = 5;
     return (
         <div className='flex space-x-1' >
 
