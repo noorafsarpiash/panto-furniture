@@ -5,9 +5,7 @@ const Rating = ({ rating }) => {
     return (
         <div className='flex space-x-1' >
 
-            {
-                Array.from({ length: totalStars }, (_, index))
-            }
+
 
         </div>
     )
