@@ -1,6 +1,8 @@
 import React from 'react'
 import { getImgUrl } from '../../utils/getImageURL'
 import Rating from '../../components/Rating'
+import { FaPlus } from "react-icons/fa6";
+
 
 const ProductCard = ({ product }) => {
     return (
@@ -13,6 +15,13 @@ const ProductCard = ({ product }) => {
                 <h4 className='text-base mb-1'>{product.category}</h4>
                 <h3 className='font-semibold text-xl mb-2'>{product.name}</h3>
                 <Rating rating={product.rating} />
+                <div className='mt-5 flex justify-between items-center'>
+                    <p className='text-black dark:text-white font-bold text-lg'><sup>$</sup><span>{product.price}</span></p>
+                    <button className='bg-black hover:bg-black/65 text-white p-2 rounded-full'>
+                        <FaPlus />
+
+                    </button>
+                </div>
             </div>
         </div>
     )
