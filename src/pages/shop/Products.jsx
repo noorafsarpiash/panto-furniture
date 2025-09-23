@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { products } from '../../utils/products'
 import ProductCard from './ProductCard'
+import btnIcon from "../../assets/button-icon.png"
 
 const Products = ({ headline }) => {
     const categories = ["Chair", "Beds", "Sofa", "Lamp"]
@@ -44,6 +45,17 @@ const Products = ({ headline }) => {
                         ))
                     }
                 </div>
+
+                {visibleProducts < filteredProducts.length && (
+                    <div className='flex justify-center items-center mt-8'>
+                        <button
+                            onClick={loadMoreProducts}
+                            className='text-lg font-semibold text-primary flex items-center gap-1'
+                        >Load More <img src={btnIcon} alt="btn icon" />
+                        </button>
+                    </div>
+                )}
+
             </div>
         </div >
     )
